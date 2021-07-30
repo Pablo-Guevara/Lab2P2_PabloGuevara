@@ -21,7 +21,7 @@ public class Lab2P2_PabloGuevara {
         String nombreGerenteG;
         String ubicacion;
         int ventasUltimoAño;
-        String sectorSocial="";
+        String sectorSocial = "";
         int sectorSocialInt;
         long capitalSemilla;
 
@@ -36,28 +36,28 @@ public class Lab2P2_PabloGuevara {
             leer.nextLine();
             if (opcion == 1) {
                 System.out.println("Ingrese nombre de la pyme: ");
-                nombre=leer.nextLine();
+                nombre = leer.nextLine();
                 System.out.println("Ingrese slogan de la pyme: ");
-                slogan=leer.nextLine();
+                slogan = leer.nextLine();
                 System.out.println("Ingrese rtn de la pyme: ");
-                rtn=leer.next();
+                rtn = leer.next();
                 System.out.println("Ingrese cantidad de empleados de la pyme: ");
-                cantidadEmpleados=leer.nextInt();
+                cantidadEmpleados = leer.nextInt();
                 leer.nextLine();
                 System.out.println("Ingrese descripcion de la pyme: ");
-                descripcion=leer.nextLine();
+                descripcion = leer.nextLine();
                 System.out.println("Ingrese año de fundacion de la pyme: ");
-                añoFundacion=leer.nextInt();
+                añoFundacion = leer.nextInt();
                 leer.nextLine();
                 System.out.println("Ingrese cantidad de socios de la pyme: ");
-                cantidadSocios=leer.nextInt();
+                cantidadSocios = leer.nextInt();
                 leer.nextLine();
                 System.out.println("Ingrese nombre del gerente general de la pyme: ");
-                nombreGerenteG=leer.nextLine();
+                nombreGerenteG = leer.nextLine();
                 System.out.println("Ingrese ubicacion de la pyme: ");
-                ubicacion=leer.nextLine();
+                ubicacion = leer.nextLine();
                 System.out.println("Ingrese ventas del ultimo año de la pyme: ");
-                ventasUltimoAño=leer.nextInt();
+                ventasUltimoAño = leer.nextInt();
                 leer.nextLine();
                 System.out.println("Ingrese el sector social de la pyme: ");
                 System.out.println("1-Transporte");
@@ -68,46 +68,86 @@ public class Lab2P2_PabloGuevara {
                 System.out.println("6-Servicios de consultoria");
                 System.out.println("7-Ecologia");
                 System.out.println("8-Ciencias juridicas");
-                sectorSocialInt=leer.nextInt();
-                if (sectorSocialInt==1) {
-                    sectorSocial="Transporte";
+                sectorSocialInt = leer.nextInt();
+                if (sectorSocialInt == 1) {
+                    sectorSocial = "Transporte";
                 }
-                if (sectorSocialInt==2) {
-                    sectorSocial="Medicina";
+                if (sectorSocialInt == 2) {
+                    sectorSocial = "Medicina";
                 }
-                if (sectorSocialInt==3) {
-                    sectorSocial="Educacion";
+                if (sectorSocialInt == 3) {
+                    sectorSocial = "Educacion";
                 }
-                if (sectorSocialInt==4) {
-                    sectorSocial="Ventas";
+                if (sectorSocialInt == 4) {
+                    sectorSocial = "Ventas";
                 }
-                if (sectorSocialInt==5) {
-                    sectorSocial="Servicios financieros";
+                if (sectorSocialInt == 5) {
+                    sectorSocial = "Servicios financieros";
                 }
-                if (sectorSocialInt==6) {
-                    sectorSocial="Servicios de consultoria";
+                if (sectorSocialInt == 6) {
+                    sectorSocial = "Servicios de consultoria";
                 }
-                if (sectorSocialInt==7) {
-                    sectorSocial="Ecologia";
+                if (sectorSocialInt == 7) {
+                    sectorSocial = "Ecologia";
                 }
-                if (sectorSocialInt==8) {
-                    sectorSocial="Ciencias juridicas";
+                if (sectorSocialInt == 8) {
+                    sectorSocial = "Ciencias juridicas";
                 }
                 System.out.println("Ingrese capital semilla de la pyme: ");
-                capitalSemilla=leer.nextLong();
-                
+                capitalSemilla = leer.nextLong();
+
                 listaPymes.add(new pymes(nombre, slogan, rtn, cantidadEmpleados, descripcion, añoFundacion, cantidadSocios, nombreGerenteG, ubicacion, ventasUltimoAño, sectorSocial, capitalSemilla));
-                
+
             }
-            
-            if (opcion==2) {
-                String salida = "";
-                for (Object t : listaPymes) {
-                    if (t instanceof pymes) {
-                        salida+=listaPymes.indexOf(t)+ "- " + t + "\n";
+
+            if (opcion == 2) {
+                int opc, posc;
+                System.out.println("1-Listar todas");
+                System.out.println("2-Listar una en especifico");
+                System.out.println("Escriba su opcion: ");
+                opc = leer.nextInt();
+                if (opc == 1) {
+
+                    String salida = "";
+                    for (Object t : listaPymes) {
+                        if (t instanceof pymes) {
+                            salida += listaPymes.indexOf(t) + "- " + t + "\n";
+                        }
                     }
+                    System.out.println(salida);
                 }
-                System.out.println(salida);
+
+                if (opc == 2) {
+                    System.out.println("Ingrese posicion a mostrar: ");
+                    posc = leer.nextInt();
+                    String salida = "";
+                    for (Object t : listaPymes) {
+                        if (t instanceof pymes) {
+                            if (posc == listaPymes.indexOf(t)) {
+                                salida += listaPymes.indexOf(t) + "- " + t + "\n";
+                            }
+                        }
+                    }
+                    System.out.println(salida);
+                }
+
+            }
+
+            if (opcion == 3) {
+                int pymeModificar, valorModificar;
+                System.out.println("Ingrese el numero de la pyme a modificar: ");
+                pymeModificar = leer.nextInt();
+                
+                System.out.println("¿Que valor desea modificar?");
+                
+
+            }
+
+            if (opcion == 4) {
+                int pymeEliminar;
+                System.out.println("Ingrese el numero de la pyme a eliminar: ");
+                pymeEliminar = leer.nextInt();
+                listaPymes.remove(pymeEliminar);
             }
         }
     }
